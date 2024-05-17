@@ -8,20 +8,27 @@ const Footer = () => {
     <div className={styles.container}>
       <div className={styles.info}>
         <div className={styles.logo}>
-          <Image src="/blog.png" alt="lama blog" width={150} height={120} />
-          <h1 className={styles.logoText}>Lamablog</h1>
+          <Image src="/blog.png" alt="lama blog" width={200} height={120} />
+          <h1 className={styles.logoText}></h1>
         </div>
         <p className={styles.desc}>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim
-          necessitatibus similique aspernatur obcaecati veritatis. Aperiam cum
-          porro sequi, totam minima consequuntur, aspernatur deleniti vero
-          repellendus dorales.
+        Discover people's blogs and explore a world of ideas and insights.
+        Connect with creators, share your thoughts, and engage with a community
+        passionate about diverse topics and perspectives.
         </p>
         <div className={styles.icons}>
-          <Image src="/facebook.png" alt="" width={18} height={18} />
-          <Image src="/instagram.png" alt="" width={18} height={18} />
-          <Image src="/tiktok.png" alt="" width={18} height={18} />
-          <Image src="/youtube.png" alt="" width={18} height={18} />
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+           <Image src="/facebook.png" alt="" width={30} height={30} />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <Image src="/instagram.png" alt="" width={30} height={30} />
+          </a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+          <Image src="/tiktok.png" alt="" width={30} height={30} />
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">
+          <Image src="/youtube.png" alt="" width={30} height={30} />
+          </a>
         </div>
       </div>
       <div className={styles.links}>

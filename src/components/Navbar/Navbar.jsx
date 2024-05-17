@@ -10,26 +10,18 @@ export default function Navbar() {
           <Image src="/blog.png" alt="lama blog" width={200} height={160} />
          
         </div>
-      <div className={styles.logo}>blogBreeze</div>
       <div className={styles.links}>
       <ThemeToggle />
         <Link href="/" className={styles.link}>Homepage</Link>
         <Link href="/" className={styles.link}>Contact</Link>
         <Link href="/"className={styles.link}>About</Link>
         <Link  href={"/addBlog"}>
+        <button class="tw-bg-blue-700 tw-hover:bg-blue-800 tw-text-white tw-font-bold tw-py-2 tw-px-4 tw-rounded-full">
         Add Blog
+        </button>
       </Link>
       </div>
       
-    
-    {/* <nav className="flex justify-between items-center bg-slate-800 px-8 py-3">
-      <Link className="text-white font-bold" href={"/"}>
-        GTCoding.
-      </Link>
-      <Link className="bg-white p-2" href={"/addBlog"}>
-        Add Blog
-      </Link>
-    </nav> */}
     </div>
   );
 }
