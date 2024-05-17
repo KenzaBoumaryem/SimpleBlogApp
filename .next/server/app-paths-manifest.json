@@ -1,0 +1,6 @@
+{
+  "/page": "app/page.js",
+  "/editBlog/[id]/page": "app/editBlog/[id]/page.js",
+  "/addBlog/page": "app/addBlog/page.js",
+  "/api/blogs/route": "app/api/blogs/route.js"
+}
