@@ -9,11 +9,20 @@ export async function POST(request) {
   return NextResponse.json({ message: "Blog Created" }, { status: 201 });
 }
 
-export async function GET() {
+export async function GET(request) {
+  const titleQuery = request.nextUrl.searchParams.get("title");
   await connectMongoDB();
-  const Blogs = await Blog.find();
+  let Blogs;
+  if (titleQuery) {
+    // If title query parameter is present, search blogs by title
+    Blogs = await Blog.find({ title: { $regex: new RegExp(titleQuery, 'i') } });
+  } else {
+    // If no title query parameter, fetch all blogs
+    Blogs = await Blog.find();
+  }
   return NextResponse.json({ Blogs });
 }
+
 
 export async function DELETE(request) {
   const id = request.nextUrl.searchParams.get("id");
@@ -21,3 +30,4 @@ export async function DELETE(request) {
   await Blog.findByIdAndDelete(id);
   return NextResponse.json({ message: "Blog deleted" }, { status: 200 });
 }
+
