@@ -1,0 +1,44 @@
+import Image from "next/image";
+
+const getBlogById = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:3000/api/blogs/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch blog");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export default async function viewBlog({ params }) {
+  const { id } = params;
+  const { blog } = await getBlogById(id);
+  const { title, content } = blog;
+  return( 
+    <>
+ <div className="tw-flex tw-items-center tw-justify-center tw-pt-8">
+    <div class="tw-max-w-sm tw-rounded tw-overflow-hidden tw-shadow-lg">
+    <Image src="/why-blog.webp" alt="" class="tw-w-full"  width={300} height={300}/>
+    <div class="tw-px-6 tw-py-4">
+      <div class="tw-font-bold tw-text-xl tw-mb-2">{title}</div>
+      <p class="tw-text-gray-700 tw-text-base">
+       {content}
+      </p>
+    </div>
+    <div class="tw-px-6 tw-pt-4 tw-pb-2">
+      <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-text-gray-700 tw-mr-2 tw-mb-2">#Learning</span>
+      <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-text-gray-700 tw-mr-2 tw-mb-2">#travel</span>
+      <span class="tw-inline-block tw-bg-gray-200 tw-rounded-full tw-px-3 tw-py-1 tw-text-sm tw-font-semibold tw-text-gray-700 tw-mr-2 tw-mb-2">#photography</span>
+    </div>
+  </div>
+  </div>
+  </>
+  
+  )
+}
