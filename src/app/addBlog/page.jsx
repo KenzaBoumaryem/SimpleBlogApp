@@ -1,7 +1,10 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Input from "../../components/UI/Input";
+import TextArea from "../../components/UI/TextArea";
+import Button from "../../components/UI/Button"
 
 export default function AddBlog() {
   const [title, setTitle] = useState("");
@@ -37,29 +40,22 @@ export default function AddBlog() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-      <input
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="Topic Title"
-      />
-
-      <input
-        onChange={(e) => setContent(e.target.value)}
-        value={content}
-        className="border border-slate-500 px-8 py-2"
-        type="text"
-        placeholder="Blog Content"
-      />
-
-      <button
-        type="submit"
-        className="bg-green-600 font-bold text-white py-3 px-6 w-fit"
-      >
-        Add Blog
-      </button>
-    </form>
+    <div className="tw-flex tw-items-center">
+    <div className="tw-w-1/3">
+    <Image style={{ borderRadius: '7px' }} src="/tt.webp" alt="" class="tw-w-full"  width={300} height={100}/>
+    </div>
+    <div className="tw-w-2/3"> 
+    <form className="tw-max-w-sm tw-mx-auto" onSubmit={handleSubmit}>
+     <Input name="Blog Title" value={title} onChange={(e) => setTitle(e.target.value)} />
+     <TextArea name="Blog Content" value={content} onChange={(e) => setContent(e.target.value)} />
+     <Button name="Add Blog"/>
+  </form>
+  </div>
+  
+  </div>
+    
+   
+ 
   );
+
 }
